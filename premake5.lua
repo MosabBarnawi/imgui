@@ -24,12 +24,11 @@ project "ImGui"
 
 	filter "system:windows"
 		systemversion "latest"
-		--cppdialect "C++17"
 
 	filter "system:linux"
 		pic "On"
 		systemversion "latest"
-		cppdialect "C++17"
+		--cppdialect "C++17"
 
 	filter "configurations:Debug"
 		runtime "Debug"

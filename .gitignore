@@ -5,6 +5,9 @@
 imgui.ini
 imgui*.ini
 
+bin/
+bin-intermediate/
+
 ## General build artifacts
 *.o
 *.obj
