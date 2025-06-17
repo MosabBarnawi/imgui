@@ -8,6 +8,9 @@ imgui*.ini
 bin/
 bin-intermediate/
 
+# FILES
+*.user
+
 ## General build artifacts
 *.o
 *.obj
@@ -75,3 +78,4 @@ examples/example_sdl3_opengl3/example_sdl3_opengl3
 examples/example_sdl3_sdlgpu3/example_sdl3_sdlgpu3
 examples/example_sdl3_sdlrenderer3/example_sdl3_sdlrenderer3
 examples/example_sdl3_vulkan/example_sdl3_vulkan
+/ImGui.vcxproj
