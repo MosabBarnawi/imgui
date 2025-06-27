@@ -1,4 +1,4 @@
-// dear imgui, v1.92.0 WIP
+// dear imgui, v1.92.1 WIP
 // (internal structures/api)
 
 // You may use this file to debug, understand or extend Dear ImGui features but we don't provide any guarantee of forward compatibility.
@@ -2143,7 +2143,7 @@ struct ImGuiContext
     ImFont*                 Font;                               // Currently bound font. (== FontStack.back().Font)
     ImFontBaked*            FontBaked;                          // Currently bound font at currently bound size. (== Font->GetFontBaked(FontSize))
     float                   FontSize;                           // Currently bound font size == line height (== FontSizeBase + externals scales applied in the UpdateCurrentFontSize() function).
-    float                   FontSizeBase;                       // Font size before scaling == style.FontSizeBase == value passed to PushFont() / PushFontSize() when specified.
+    float                   FontSizeBase;                       // Font size before scaling == style.FontSizeBase == value passed to PushFont() when specified.
     float                   FontBakedScale;                     // == FontBaked->Size / FontSize. Scale factor over baked size. Rarely used nowadays, very often == 1.0f.
     float                   FontRasterizerDensity;              // Current font density. Used by all calls to GetFontBaked().
     float                   CurrentDpiScale;                    // Current window/viewport DpiScale == CurrentViewport->DpiScale
@@ -3713,8 +3713,8 @@ typedef ImFontLoader ImFontBuilderIO; // [renamed/changed in 1.92] The types are
 
 // Helpers: ImTextureRef ==/!= operators provided as convenience
 // (note that _TexID and _TexData are never set simultaneously)
-static inline bool operator==(const ImTextureRef& lhs, const ImTextureRef& rhs) { return lhs._TexID == rhs._TexID && lhs._TexData == rhs._TexData; }
-static inline bool operator!=(const ImTextureRef& lhs, const ImTextureRef& rhs) { return lhs._TexID != rhs._TexID || lhs._TexData != rhs._TexData; }
+inline bool operator==(const ImTextureRef& lhs, const ImTextureRef& rhs)    { return lhs._TexID == rhs._TexID && lhs._TexData == rhs._TexData; }
+inline bool operator!=(const ImTextureRef& lhs, const ImTextureRef& rhs)    { return lhs._TexID != rhs._TexID || lhs._TexData != rhs._TexData; }
 
 // Refer to ImFontAtlasPackGetRect() to better understand how this works.
 #define ImFontAtlasRectId_IndexMask_        (0x000FFFFF)    // 20-bits: index to access builder->RectsIndex[].
@@ -3746,7 +3746,7 @@ struct ImFontAtlasPostProcessData
     ImFontGlyph*        Glyph;
 
     // Pixel data
-    unsigned char*      Pixels;
+    void*               Pixels;
     ImTextureFormat     Format;
     int                 Pitch;
     int                 Width;
